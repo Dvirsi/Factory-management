@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Factory Managment</title>
+    <script type="text/javascript" src="./script.js"></script>
+</head>
+    <script>
+    async function homePage() {
+        let uname = document.getElementById("uname").value;
+        let pass = document.getElementById("password").value;
+
+        let resp = await fetch("https://localhost:44302/api/User?uname=" + uname + "&password=" + pass);
+        let user = await resp.json();
+
+            if(user == null)
+            {
+                document.getElementById("wrongDetails").style.display = "block";
+            }
+            
+            else
+            {
+                sessionStorage["currentUserID"] = user.ID;
+                sessionStorage["userFullName"] = user.FullName;
+                sessionStorage["NumOfAction"] = user.NumOfAction;
+                sessionStorage["ActionDone"] = user.ActionDone; 
+
+                let hasMoreCredit = await checkForMaxCredit()
+                if(!hasMoreCredit)
+                {
+                    document.location.href = "Home_Page.html";
+                }
+            }
+    }
+    </script>
+</head>
+<body>
+    <!-- Log in form -->
+<div class="container">
+    <form action="#" class="form " id="login">
+        <h1 class="form__title">Login</h1>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+            <input type="text" class="form__input" id="uname" autofocus placeholder="Username">
+            <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+            <input type="password" class="form__input" id="password" autofocus placeholder="Password">
+            <div class="form__input-error-message"></div>
+        </div>
+        <button class="form__button" type="submit" onclick="homePage();">Log in</button>
+        <p class="form__text">
+            <!-- <a href="#" class="form__links">Forgot your password?</a> -->
+        </p>
+    </form>
+</div>
+<!-- Log in form -->
+
+<!-- Max credit div -->
+<div id="maxActionDiv" style="display: none;">
+    <p>You have reached the maximum actions for today</p>
+    <p>Come back tomorrow for more action</p>
+</div>
+<!-- Max credit div -->
+
+<!-- wrong details pop up -->
+<div id="wrongDetails" style="display: none; color: red;">
+    <p>You enter wrong user name or password</p>
+</div>
+<!-- wrong details pop up -->
+</body>
+</html>

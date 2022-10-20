@@ -1,0 +1,281 @@
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+body
+{
+    --color-primary:#5AA8C9;
+    --color-primary-dark: #347e9e;
+    --color-secondary: #252c6a;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 4px;
+    
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: #ECECEC;
+}
+
+
+header
+{
+    display: flex;
+    align-self: flex-start;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: white;
+}
+
+
+
+li, a, button
+{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    background-color: white;
+}
+
+ul
+{
+    background-color: white;
+}
+
+
+
+.logo
+{
+    margin-left: -60px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.dividingLine
+{
+    width: 100%;
+    height: 3px;
+    background-color:#5AA8C9;
+}
+
+.aa
+{
+    list-style: none;
+}
+
+.aa li 
+{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.aa li a 
+{
+    transition: all 0.3s ease 0s;
+}
+
+.aa li a:hover
+{
+   color: #5AA8C9;
+}
+
+button
+{
+    padding: 9px 25px;
+    background-color: #5AA8C9;
+    border: none;
+    border-radius: 50px ;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+
+button:hover
+{
+    background-color: red;
+}
+
+
+ section
+{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}  
+
+.container
+{
+    width: 400px;
+    max-width: 400px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+}
+
+
+
+
+.container,
+.form__input,
+.form__button
+{
+    font: 500 1rem 'Quiksand', sans-serif;
+}
+
+.form--hidden
+{
+    display: none;
+}
+
+.form > *:first-child
+{
+    margin-top: 0;
+}
+
+.form__title
+{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form > *:last-child
+{
+    margin-bottom: 0;
+}
+
+.form__message
+{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form__message--success
+{
+    color: var(--color-success);
+}
+
+.form__message--error
+{
+    color: var(--color-error);
+}
+
+.form__input-group
+{
+    margin-bottom: 1rem;
+}
+
+.form__input
+{
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border: 1px solid;
+    outline: none;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.form__input:focus
+{
+border-color: var(--color-primary);
+}
+
+.form__input--error
+{
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.form__input-error-message
+{
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-error);
+}
+
+.form__button
+{
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    /* color: white; */
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: var(--color-primary);
+}
+
+.form__button:hover
+{
+    background: var(--color-primary-dark);
+}
+
+.form__button:active
+{
+    transform: scale(0.98);
+}
+
+.form__text
+{
+    text-align: center;
+}
+
+.form__links
+{
+    background: #ECECEC;
+    color: var(--color-secondary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form__links:hover
+{
+    text-decoration: underline;
+}
+
+#maxActionDiv
+{
+    display: none;
+    color: red;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.loader-wraper
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background-color: #ECECEC;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+}
+
+
+
+

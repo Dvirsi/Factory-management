@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <title>Home page</title>
+
+</style>
+</head>
+<script>
+
+  function helloUser()
+{
+  document.getElementById("helloFullName").innerText = sessionStorage["userFullName"]
+
+  let numOfActions = document.getElementsByClassName("helloAction")
+  for(let i=0; i<numOfActions.length; i++)
+  {
+    numOfActions[i].innerText = sessionStorage["NumOfAction"]
+  }
+  
+  document.getElementById("helloActionLeft").innerText = sessionStorage["NumOfAction"] - sessionStorage["ActionDone"]
+}
+
+
+</script>
+
+<style>
+  body
+  {
+    position: absolute;
+    width: 100%;
+    height: 982px;
+    left: 0px;
+    top: 0px;
+
+    background: url(./images/pexels-pixabay-236705\ 1.jpg);
+  }
+
+#helloUserDiv
+{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 100px 64px;
+gap: 10px;
+
+position: absolute;
+width: 765px;
+height: 641px;
+left: 64px;
+top: 160px;
+
+background: #FBFBFB;
+box-shadow: 0px 80px 40px rgba(0, 0, 0, 0.25);
+border-radius: 16px;
+}
+</style>
+
+<body onload="showFullName(); helloUser();">
+
+
+
+
+  <!-- navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light py-4 px-1 fs-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./Home_Page.html"><img src="./images/LOGO-LARGER.svg" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-toggler-icon"></a>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./Employee.html">Employees</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./Department.html">Departments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./Shift.html">Shifts</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            Remaining actions : &nbsp; <span id="actionLeftNav"></span>/<span id="actionTotlNav"></span> &nbsp; &nbsp;
+            <p class="me-3 my-1" id="pFullName">Full Name</p>
+            <div>
+              <button class="btn btn-outline-secondery fs-4" onclick="logOut()"> Log out <img src="./images/akar-icons_sign-out.svg" alt="" ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+<!-- navbar -->
+
+<section>
+
+<!--  -->
+<div id="helloUserDiv"> 
+  <div class="position-absolute top-50 start-50 translate-middle d-flex flex-column">
+    <h1>Hey <span id="helloFullName"></span>,</h1>
+    <h3>You have <span id="helloActionLeft"></span>/<span class="helloAction"></span> actions left to do today. </h3>
+    <br>
+    <h3>This is how this works:</h3>
+    <p>You have <span class="helloAction"></span> actions per day, which resets every 24 hrs.</p>
+     <p> You will be deducted an action credit when ever you enter one of the 3 tables, click a button, or make a change.</p>
+     <p> Once your credits are finished you will be automatically logged out.</p>
+</div>
+
+<!--  -->
+
+</section>
+
+
+
+
+
+</body>
+
+</html>
